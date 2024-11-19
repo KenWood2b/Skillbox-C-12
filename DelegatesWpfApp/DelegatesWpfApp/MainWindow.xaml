@@ -1,0 +1,45 @@
+﻿<Window x:Class="DelegatesWpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DelegatesWpfApp"
+        mc:Ignorable="d"
+        Title="Банковская система" Height="450" Width="860">
+    <Grid>
+        <!-- Выбор роли -->
+        <ComboBox x:Name="RoleComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="10"
+                  SelectionChanged="RoleComboBox_SelectionChanged">
+            <ComboBoxItem Content="Консультант" />
+            <ComboBoxItem Content="Менеджер" />
+        </ComboBox>
+
+        <!-- Список клиентов -->
+        <DataGrid x:Name="ClientsGrid" AutoGenerateColumns="False" Margin="10,50,10,200">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Имя" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Счета" Binding="{Binding Accounts.Count}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DataGrid x:Name="LogDataGrid" AutoGenerateColumns="False" Margin="10,250,10,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Время" Binding="{Binding Timestamp}" />
+                <DataGridTextColumn Header="Действие" Binding="{Binding Action}" />
+                <DataGridTextColumn Header="Кто совершил" Binding="{Binding PerformedBy}" />
+                <DataGridTextColumn Header="Детали" Binding="{Binding Details}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Кнопки -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10">
+            <Button Content="Добавить клиента" x:Name="AddClientButton" Click="AddClient_Click" Margin="5" IsEnabled="False" />
+            <Button Content="Управление счетами" x:Name="ManageAccountsButton" Click="ManageAccounts_Click" Margin="5" IsEnabled="False" />
+            <Button Content="Перевод средств" x:Name="TransferFundsButton" Click="TransferFunds_Click" Margin="5" IsEnabled="False" />
+            <Button Content="Сохранить данные" Click="SaveButton_Click" Margin="5" />
+            <Button Content="Загрузить данные" Click="LoadButton_Click" Margin="5" />
+
+        </StackPanel>
+    </Grid>
+</Window>

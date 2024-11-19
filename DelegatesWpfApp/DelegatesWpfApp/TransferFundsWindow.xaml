@@ -1,0 +1,39 @@
+﻿<Window x:Class="DelegatesWpfApp.TransferFundsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DelegatesWpfApp"
+        mc:Ignorable="d"
+       Title="Перевод средств" Height="400" Width="400">
+    <Grid Margin="10">
+        <StackPanel>
+            <TextBlock Text="Отправитель:" Margin="5"/>
+            <ComboBox x:Name="SenderComboBox"
+                      SelectionChanged="SenderComboBox_SelectionChanged"
+                      DisplayMemberPath="Name"
+                      Margin="5" />
+
+            <TextBlock Text="Счёт отправителя:" Margin="5"/>
+            <ComboBox x:Name="SenderAccountComboBox"
+                      DisplayMemberPath="Type"
+                      Margin="5" />
+
+            <TextBlock Text="Получатель:" Margin="5"/>
+            <ComboBox x:Name="ReceiverComboBox"
+                      SelectionChanged="ReceiverComboBox_SelectionChanged"
+                      DisplayMemberPath="Name"
+                      Margin="5" />
+
+            <TextBlock Text="Счёт получателя:" Margin="5"/>
+            <ComboBox x:Name="ReceiverAccountComboBox"
+                      DisplayMemberPath="Type"
+                      Margin="5" />
+
+            <TextBlock Text="Сумма:" Margin="5"/>
+            <TextBox x:Name="AmountTextBox" Margin="5" />
+
+            <Button Content="Перевести средства" Click="TransferFundsButton_Click" Margin="5"/>
+        </StackPanel>
+    </Grid>
+</Window>
